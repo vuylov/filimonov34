@@ -1,6 +1,14 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:700,400&subset=latin,cyrillic);
 html,
 body {
     height: 100%;
+    background-color: #000000;
+    background-image: url("../images/bg.jpg");
+    background-position: 50% 25%;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .wrap {
@@ -88,4 +96,47 @@ a.desc:after {
     border-left: 3px solid #eed3d7;
     padding: 10px 20px;
     margin: 0 0 15px 0;
+}
+.header {
+    margin-top: 50px;
+}
+.header h1, .header h2{
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    text-align: center;
+    margin: 0 auto;
+
+}
+.header h1{
+    line-height: 50px;
+    font-weight: bold;
+}
+.header h1 > span {
+    padding: 3px 6px;
+    border: 2px #fff solid;
+}
+span.blue{
+    background-color: #002448;
+    border-bottom: none;
+    padding-bottom: 5px;
+}
+span.red {
+    background-color:#9d1313;
+}
+.header h2{
+    font-size: 1.5em;
+}
+.top-menu{
+    border-radius: 0px 0px 4px 4px;
+    background: #9d1313;
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.navbar-nav.nav-justified > li{
+    float:none;
+}
+#slider-wrapper{
+    background-color: #fff;
+    margin-top: 50px;
 }
