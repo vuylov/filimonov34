@@ -134,12 +134,15 @@ span.red {
     background: #002448;
     padding-left: 0px;
     padding-right: 0px;
+    -moz-box-shadow: 0 0 10px #000;
+    -webkit-box-shadow: 0 0 10px #000;
+    box-shadow: 0 0 10px #000;
 }
 .navbar-nav.nav-justified > li{
     float:none;
     white-space: nowrap;
 }
-.navbar-nav.nav-justified > li :hover{
+.navbar-nav.nav-justified > li :hover, .navbar-nav.nav-justified > li.active{
     background-color: #9d1313;
 }
 
@@ -191,9 +194,7 @@ span.prev-arrow{
     padding-left: 12px;
     padding-top: 20px;
 }
-.divider-vertical {
-    height: 50px;
-    margin: 0 9px;
-    border-left: 1px solid #F2F2F2;
-    border-right: 1px solid #FFF;
+.section-header{
+    padding-bottom: 5px;
+    border-bottom: #eee 1px solid;
 }

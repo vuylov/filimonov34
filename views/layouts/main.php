@@ -80,7 +80,8 @@ BxSliderAsset::register($this);
                    <?= $content ?>
                </div>
                <div class="col-xs-3 col-md-4">
-                   SideBar
+                   <h3 class="section-header">Календарь соревнований</h3>
+                   <div>Rfkt</div>
                </div>
            </div>
 

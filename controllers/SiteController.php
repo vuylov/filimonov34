@@ -93,4 +93,14 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    public function actionAchivements()
+    {
+        return $this->render('achivements');
+    }
+
+    public function actionArena()
+    {
+        return $this->render('arena');
+    }
 }
