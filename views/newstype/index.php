@@ -6,27 +6,24 @@ use yii\grid\GridView;
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Newstypes';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Типы новостей';
 ?>
 <div class="newstype-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Create Newstype', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
+    <h3 class="section-header"><?= Html::encode($this->title) ?></h3>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'name',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
+        'emptyText' => 'Записей нет.'
     ]); ?>
-
+    <p class="pull-right">
+        <?= Html::a('Добавить тип', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 </div>

@@ -5,9 +5,13 @@ namespace app\controllers;
 use Yii;
 use app\models\News;
 use app\models\NewsSearch;
+use app\models\File;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use yii\filters\AccessControl;
 
 /**
  * NewsController implements the CRUD actions for News model.
@@ -22,6 +26,16 @@ class NewsController extends Controller
                 'actions' => [
                     'delete' => ['post'],
                 ],
+            ],
+            'access'    => [
+                'class' => AccessControl::className(),
+                'only'  => ['index', 'update', 'delete', 'create'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@']
+                    ]
+                ]
             ],
         ];
     }
@@ -61,10 +75,34 @@ class NewsController extends Controller
     public function actionCreate()
     {
         $model = new News();
+        $model->active = true;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+
+            $uploadFile = UploadedFile::getInstance($model, 'file');
+
+            VarDumper::dump($uploadFile, 10, true);
+            /*
+            $fName      = Yii::$app->security->generateRandomString(10);
+            $thName     = 'tmb-'.$fName;
+
+            $file           = new File();
+            $file->fid      = $model->id;
+            $file->type     = $model->fileType;
+            $file->path     = 'upload/thumb/'.$thName.'.'.$uploadFile->extension;
+            $file->thumb    = $file->path;
+            if($file->save()){
+                $uploadFile->saveAs($file->path);
+                $model->thumb = $file->thumb;
+                $model->save();
+
+                return $this->redirect(['view', 'id' => $model->id]);
+            }else{
+                VarDumper::dump($file->errors, 10, true);
+            }*/
+
         } else {
+
             return $this->render('create', [
                 'model' => $model,
             ]);

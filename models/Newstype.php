@@ -28,7 +28,7 @@ class Newstype extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name'], 'required'],
+            [['name'], 'required', 'message' => '{attribute} не может быть пустым'],
             [['name'], 'string', 'max' => 255]
         ];
     }
@@ -40,7 +40,7 @@ class Newstype extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Наименование типа',
         ];
     }
 

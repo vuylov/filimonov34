@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-
+use yii\db\Expression;
 /**
  * This is the model class for table "file".
  *
@@ -53,5 +53,16 @@ class File extends \yii\db\ActiveRecord
             'extension' => 'Extension',
             'create_at' => 'Create At',
         ];
+    }
+
+    public function beforeSave($insert)
+    {
+        if(parent::beforeSave($insert)){
+            if($this->isNewRecord){
+                $this->create_at    = new Expression('NOW()');
+            }
+            return true;
+        }
+        return false;
     }
 }

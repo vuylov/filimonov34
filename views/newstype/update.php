@@ -5,14 +5,11 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Newstype */
 
-$this->title = 'Update Newstype: ' . ' ' . $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Newstypes', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Изменение типа:' . ' ' . $model->name;
 ?>
 <div class="newstype-update">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h3 class="section-header"><?= Html::encode($this->title) ?></h3>
 
     <?= $this->render('_form', [
         'model' => $model,

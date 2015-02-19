@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "news".
@@ -24,6 +25,8 @@ use Yii;
  */
 class News extends \yii\db\ActiveRecord
 {
+    const FILE_TYPE = 'news';
+    public $file; //use gor thumb upload
     /**
      * @inheritdoc
      */
@@ -38,10 +41,10 @@ class News extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user_id', 'newstype_id', 'title', 'keywords', 'description_seo'], 'required'],
+            [['newstype_id', 'title', 'keywords', 'description_seo'], 'required', 'message' => 'Атрибут "{attribute}" обязателен для заполнения'],
             [['user_id', 'newstype_id', 'active', 'visitors'], 'integer'],
             [['description', 'thumb', 'keywords', 'description_seo'], 'string'],
-            [['create_at'], 'safe'],
+            [['create_at', 'file', 'user_id'], 'safe'],
             [['title'], 'string', 'max' => 255]
         ];
     }
@@ -53,16 +56,17 @@ class News extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'user_id' => 'User ID',
-            'newstype_id' => 'Newstype ID',
-            'active' => 'Active',
-            'title' => 'Title',
-            'description' => 'Description',
-            'thumb' => 'Thumb',
-            'visitors' => 'Visitors',
-            'create_at' => 'Create At',
-            'keywords' => 'Keywords',
-            'description_seo' => 'Description Seo',
+            'user_id' => 'Добавил',
+            'newstype_id' => 'Тип новости',
+            'active' => 'Активность',
+            'title' => 'Заголовок',
+            'description' => 'Описание',
+            'thumb' => 'Картинка для анонса',
+            'visitors' => 'Количество просмотров',
+            'create_at' => 'Дата создания',
+            'keywords' => 'Ключевые слова',
+            'description_seo' => 'Описание для SEO',
+            'file'      => 'Загрузка картинки для анонса'
         ];
     }
 
@@ -80,5 +84,30 @@ class News extends \yii\db\ActiveRecord
     public function getUser()
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getFiles()
+    {
+        return $this->hasMany(File::className(), ['fid' => 'id'])->where(['type' => self::FILE_TYPE]);
+    }
+
+    public function getFileType()
+    {
+        return self::FILE_TYPE;
+    }
+
+    public function beforeSave($insert)
+    {
+        if(parent::beforeSave($insert)){
+            if($this->isNewRecord){
+                $this->user_id      = Yii::$app->user->id;
+                $this->create_at    = new Expression('NOW()');
+            }
+            return true;
+        }
+        return false;
     }
 }
