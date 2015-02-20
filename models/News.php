@@ -43,7 +43,7 @@ class News extends \yii\db\ActiveRecord
         return [
             [['newstype_id', 'title', 'keywords', 'description_seo'], 'required', 'message' => 'Атрибут "{attribute}" обязателен для заполнения'],
             [['user_id', 'newstype_id', 'active', 'visitors'], 'integer'],
-            [['description', 'thumb', 'keywords', 'description_seo'], 'string'],
+            [['description', 'thumb', 'keywords', 'description_seo', 'brief'], 'string'],
             [['create_at', 'file', 'user_id'], 'safe'],
             [['title'], 'string', 'max' => 255]
         ];
@@ -66,7 +66,8 @@ class News extends \yii\db\ActiveRecord
             'create_at' => 'Дата создания',
             'keywords' => 'Ключевые слова',
             'description_seo' => 'Описание для SEO',
-            'file'      => 'Загрузка картинки для анонса'
+            'file'      => 'Загрузка картинки для анонса',
+            'brief'     => 'Анонс на главную страницу'
         ];
     }
 
@@ -105,6 +106,19 @@ class News extends \yii\db\ActiveRecord
             if($this->isNewRecord){
                 $this->user_id      = Yii::$app->user->id;
                 $this->create_at    = new Expression('NOW()');
+            }
+            return true;
+        }
+        return false;
+    }
+
+    public function beforeDelete(){
+        if(parent::beforeDelete()){
+            if($this->thumb){
+                $thumb = Yii::getAlias('@webroot').'/upload/news/'.$this->thumb;
+                if(file_exists($thumb)){
+                    unlink($thumb);
+                }
             }
             return true;
         }

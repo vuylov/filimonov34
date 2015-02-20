@@ -8,6 +8,7 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
+use app\models\News;
 
 class SiteController extends Controller
 {
@@ -47,7 +48,10 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $news = News::find()->orderBy('create_at DESC')->limit(5)->all();
+        return $this->render('index', [
+            'news'  => $news
+        ]);
     }
 
     public function actionLogin()

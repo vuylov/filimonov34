@@ -29,7 +29,7 @@ class NewsController extends Controller
             ],
             'access'    => [
                 'class' => AccessControl::className(),
-                'only'  => ['index', 'update', 'delete', 'create'],
+                'only'  => ['index', 'update', 'delete', 'create', 'DeleteTmb'],
                 'rules' => [
                     [
                         'allow' => true,
@@ -79,33 +79,30 @@ class NewsController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
-            $uploadFile = UploadedFile::getInstance($model, 'file');
+            $this->saveUploadFile($model);
 
-            VarDumper::dump($uploadFile, 10, true);
-            /*
-            $fName      = Yii::$app->security->generateRandomString(10);
-            $thName     = 'tmb-'.$fName;
-
-            $file           = new File();
-            $file->fid      = $model->id;
-            $file->type     = $model->fileType;
-            $file->path     = 'upload/thumb/'.$thName.'.'.$uploadFile->extension;
-            $file->thumb    = $file->path;
-            if($file->save()){
-                $uploadFile->saveAs($file->path);
-                $model->thumb = $file->thumb;
-                $model->save();
-
-                return $this->redirect(['view', 'id' => $model->id]);
-            }else{
-                VarDumper::dump($file->errors, 10, true);
-            }*/
-
+            return $this->redirect(['view', 'id' => $model->id]);
         } else {
 
             return $this->render('create', [
                 'model' => $model,
             ]);
+        }
+    }
+
+    public function actionDeletetmb($id = null){
+        if(is_null($id)){
+            echo 'Name file not given';
+            return false;
+        }
+
+        $model = News::findOne($id);
+        $tmb = Yii::getAlias('@webroot').'/upload/news/'.$model->thumb;
+        if(file_exists($tmb)){
+            unlink($tmb);
+            $model->thumb = null;
+            $model->save();
+            echo 'Файл удален';
         }
     }
 
@@ -120,6 +117,9 @@ class NewsController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            $this->saveUploadFile($model);
+
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -154,6 +154,21 @@ class NewsController extends Controller
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    protected function saveUploadFile($model)
+    {
+        $uploadFile = UploadedFile::getInstance($model, 'file');
+
+        if(!$uploadFile->name){
+            return;
+        }
+        $tmbName        = Yii::$app->security->generateRandomString(10);
+        $tmbPath        = 'upload/news/'.$tmbName.'.'.$uploadFile->extension;
+        if($uploadFile->saveAs($tmbPath)){
+            $model->thumb = $tmbName.'.'.$uploadFile->extension;
+            $model->save();
         }
     }
 }
