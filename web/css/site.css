@@ -238,3 +238,35 @@ div.achivement{
 span.shadow{
     text-shadow: 8px 0 10px rgba(0, 0, 0, 1);
 }
+.item{
+    overflow: hidden;
+    margin-bottom: 10px;
+    display: table-cell;
+}
+.item a{
+    background-size: cover;
+    background-position: center;
+    width: 219px;
+    height: 150px;
+    display: block;
+    text-indent: -9999999px;
+}
+.item-link{
+    width: 100%;
+}
+.item-caption{
+    text-align: center;
+    background-color: #9d1313;
+    color: #fff;
+}
+.img-project-index {
+    width: 210px;
+    float: left;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+.img-container {
+    display: block;
+    height: 165px;
+    background-size: cover;
+    background-position: center center;}

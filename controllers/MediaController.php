@@ -152,7 +152,7 @@ class MediaController extends Controller
 
     public function actionPhoto()
     {
-        $models = Media::find()->where('mediatype_id = 1')->all();
+        $models = Media::find()->with(['files'])->where('mediatype_id = 1')->all();
 
         return $this->render('photo', [
             'models'    => $models
@@ -161,7 +161,7 @@ class MediaController extends Controller
 
     public function actionVideo()
     {
-        $models = Media::find()->where('mediatype_id = 2')->all();
+        $models = Media::find()->with(['files'])->where('mediatype_id = 2')->all();
 
         return $this->render('video', [
             'models'    => $models
