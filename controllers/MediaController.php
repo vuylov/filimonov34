@@ -5,9 +5,12 @@ namespace app\controllers;
 use Yii;
 use app\models\Media;
 use app\models\MediaSearch;
+use app\models\File;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use yii\web\UploadedFile;
 
 /**
  * MediaController implements the CRUD actions for Media model.
@@ -22,6 +25,16 @@ class MediaController extends Controller
                 'actions' => [
                     'delete' => ['post'],
                 ],
+            ],
+            'access'    => [
+                'class' => AccessControl::className(),
+                'only'  => ['index', 'update', 'delete', 'create'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@']
+                    ]
+                ]
             ],
         ];
     }
@@ -48,8 +61,9 @@ class MediaController extends Controller
      */
     public function actionView($id)
     {
+        $media = $this->findModel($id);
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $media
         ]);
     }
 
@@ -61,8 +75,25 @@ class MediaController extends Controller
     public function actionCreate()
     {
         $model = new Media();
+        $model->active = true;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            $uploads = UploadedFile::getInstances($model, 'file');
+            foreach($uploads as $file){
+
+                $name = 'upload/media/'.Yii::$app->security->generateRandomString().'.'.$file->extension;
+
+                $dbFile             = new File();
+                $dbFile->fid        = $model->id;
+                $dbFile->type       = $model->getFileType();
+                $dbFile->path       = $name;
+                $dbFile->extension  = $file->extension;
+                if($dbFile->save()){
+                    $file->saveAs($name);
+                }
+                unset($dbFile);
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('create', [
@@ -117,5 +148,23 @@ class MediaController extends Controller
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public function actionPhoto()
+    {
+        $models = Media::find()->where('mediatype_id = 1')->all();
+
+        return $this->render('photo', [
+            'models'    => $models
+        ]);
+    }
+
+    public function actionVideo()
+    {
+        $models = Media::find()->where('mediatype_id = 2')->all();
+
+        return $this->render('video', [
+            'models'    => $models
+        ]);
     }
 }

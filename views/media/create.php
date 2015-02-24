@@ -6,16 +6,15 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Media */
 
-$this->title = 'Create Media';
-$this->params['breadcrumbs'][] = ['label' => 'Media', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Добавление медиа/фото';
+//$this->params['breadcrumbs'][] = ['label' => 'Media', 'url' => ['index']];
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="media-create">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h3 class="section-header"><?= Html::encode($this->title) ?></h3>
 
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
-
 </div>

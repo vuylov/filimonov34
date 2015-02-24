@@ -25,9 +25,10 @@ $this->title = 'Официальный сайт Олега Филимонова'
         <?php endforeach;?>
     </div>
     <div class="all-news pull-right">
-        <?=Html::a('Все новости', ['news/index'], ['class' => 'btn btn-primary']);?>
+        <?=Html::a('Все новости', ['news/index'], ['class' => 'btn btn-default']);?>
     </div>
     <?php else:?>
         <div class="alert-danger">Новостей нет.</div>
     <?php endif;?>
 </div>
+

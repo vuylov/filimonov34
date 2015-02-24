@@ -105,4 +105,9 @@ class SiteController extends Controller
     {
         return $this->render('arena');
     }
+
+    public function actionFaq()
+    {
+        return $this->render('faq');
+    }
 }

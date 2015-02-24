@@ -7,27 +7,23 @@ use yii\grid\GridView;
 /* @var $searchModel app\models\MediaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Media';
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Медиа';
+//$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="media-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <h3 class="section-header"><?= Html::encode($this->title) ?></h3>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
-    <p>
-        <?= Html::a('Create Media', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'emptyText'     => 'Ничег не добавлено',
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'mediatype_id',
-            'user_id',
+            //'id',
+            'mediatype.name',
+            'user.name',
             'name',
             'description:ntext',
             // 'thumb:ntext',
@@ -40,5 +36,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
-
+    <p class="pull-right">
+        <?= Html::a('Добавить фото/видео', ['create'], ['class' => 'btn btn-success']) ?>
+    </p>
 </div>

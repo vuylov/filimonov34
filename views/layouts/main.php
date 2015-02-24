@@ -41,8 +41,9 @@ BxSliderAsset::register($this);
                     ['label' => 'Главная', 'url' => ['/site/index']],
                     ['label' => 'Биография', 'url' => ['/site/about']],
                     ['label' => 'Достижения', 'url' => ['/site/achivements']],
-                    ['label' => 'Галерея', 'url' => ['/photo/index']],
-                    ['label' => 'Видео', 'url' => ['/video/index']],
+                    ['label' => 'Мой тренер', 'url' => ['/site/coach']],
+                    ['label' => 'Галерея', 'url' => ['/media/photo']],
+                    ['label' => 'Видео', 'url' => ['/media/video']],
                     ['label' => 'СК &laquo;Арена Юг&raquo;', 'url' => ['/site/arena']],
                     ['label' => 'В СМИ', 'url' => ['/site/press']],
                     ['label' => 'Советы мастера', 'url' => ['/site/faq']],
@@ -52,8 +53,8 @@ BxSliderAsset::register($this);
             NavBar::end();
         ?>
         <div class="header center-block">
-            <h1><span class="blue">Олег</span><br><span class="red">Филимонов</span></h1>
-            <h2>Профессиональный пауэрлифтер,<br>многократный чемпион и рекордсмен<br>мира, евразии и европы</h2>
+            <h1 class="central-h1"><span class="blue">Олег</span><br><span class="red">Филимонов</span></h1>
+            <h2><span class="shadow">Профессиональный пауэрлифтер,<br>многократный чемпион и рекордсмен<br>мира, евразии и европы</span></h2>
         </div>
         <div id="slider-wrapper">
             <ul class="bxslider">
@@ -89,7 +90,7 @@ BxSliderAsset::register($this);
         <footer class="footer">
             <div class="container">
                 <p class="pull-left">&copy; Олег Филимонов <?= date('Y') ?></p>
-                <p class="pull-right"><?= Yii::powered() ?></p>
+                <p class="pull-right"><?= Html::mailto('Написать письмо', 'mailto:oa.filimonov@gmail.com') ?></p>
             </div>
         </footer>
     </div>
