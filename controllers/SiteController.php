@@ -110,4 +110,9 @@ class SiteController extends Controller
     {
         return $this->render('faq');
     }
+
+    public function actionPress()
+    {
+        return $this->render('press');
+    }
 }

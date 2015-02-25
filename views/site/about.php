@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 /* @var $this yii\web\View */
-$this->title = 'Биография';
+$this->title = 'Биография Олега Филимонова';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
@@ -21,6 +21,10 @@ $this->title = 'Биография';
             <p>В настоящее время Олег является старшим тренером в <?= Html::a('СК «Арена-Юг»', ['media/view', 'id' => 8]) ?> (Волгоград).</p>
             <p>Женат, вместе с женой Виолеттой воспитывают сына Глеба.</p>
         </div>
-        <div class="clearfix"?></div>
+        <div class="clearfix"></div>
     </div>
 </div>
+<?php
+$this->registerMetaTag(['name' => 'keywords', 'content' => 'пауэрлифтер, powerlifting в волгограде, биография олег филимонова']);
+$this->registerMetaTag(['name' => 'description', 'content' => 'Пауэрлифтингом Олег увлекся в 2010 году, что в дальнейшем и определило его профессию. С 2010 года выступает на международных соревнованиях по пауэрлифтингу по версии Федерации WPC-WPO в дивизионе AWPC – жим штанги лежа без экипировки.']);
+?>

@@ -2,9 +2,9 @@
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
 use app\assets\BxSliderAsset;
+use app\components\Calendar;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -41,12 +41,12 @@ BxSliderAsset::register($this);
                     ['label' => 'Главная', 'url' => ['/site/index']],
                     ['label' => 'Биография', 'url' => ['/site/about']],
                     ['label' => 'Достижения', 'url' => ['/site/achivements']],
-                    ['label' => 'Мой тренер', 'url' => ['/site/coach']],
+                    //['label' => 'Мой тренер', 'url' => ['/site/coach']],
                     ['label' => 'Галерея', 'url' => ['/media/photo']],
                     ['label' => 'Видео', 'url' => ['/media/video']],
                     ['label' => 'СК &laquo;Арена-Юг&raquo;', 'url' => ['/media/view', 'id' => 8]],
                     ['label' => 'В СМИ', 'url' => ['/site/press']],
-                    ['label' => 'Советы мастера', 'url' => ['/site/faq']],
+                    //['label' => 'Советы мастера', 'url' => ['/site/faq']],
                     ['label' => 'Контакты', 'url' => ['/site/contact']],
                 ],
             ]);
@@ -82,13 +82,16 @@ BxSliderAsset::register($this);
                </div>
                <div class="col-xs-3 col-md-4">
                    <h3 class="section-header">Календарь соревнований</h3>
-                   <div>Rfkt</div>
+                   <div>
+
+                   </div>
                </div>
            </div>
 
         </div>
         <footer class="footer">
             <div class="container">
+                <p>Все права защищены и охраняются законом. Использование материалов сайта разрешено только с письменного разрешения владельца сайта.</p>
                 <p class="pull-left"><?= Html::mailto('&copy; Олег Филимонов '.date('Y'), 'mailto:oa.filimonov@gmail.com') ?></p>
             </div>
         </footer>
