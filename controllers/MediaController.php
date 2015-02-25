@@ -113,6 +113,22 @@ class MediaController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+            $uploads = UploadedFile::getInstances($model, 'file');
+            foreach($uploads as $file){
+
+                $name = 'upload/media/'.Yii::$app->security->generateRandomString().'.'.$file->extension;
+
+                $dbFile             = new File();
+                $dbFile->fid        = $model->id;
+                $dbFile->type       = $model->getFileType();
+                $dbFile->path       = $name;
+                $dbFile->extension  = $file->extension;
+                if($dbFile->save()){
+                    $file->saveAs($name);
+                }
+                unset($dbFile);
+            }
             return $this->redirect(['view', 'id' => $model->id]);
         } else {
             return $this->render('update', [
@@ -152,7 +168,7 @@ class MediaController extends Controller
 
     public function actionPhoto()
     {
-        $models = Media::find()->with(['files'])->where('mediatype_id = 1')->all();
+        $models = Media::find()->with(['files'])->where('mediatype_id = 1')->orderBy('create_at DESC')->all();
 
         return $this->render('photo', [
             'models'    => $models
@@ -161,7 +177,7 @@ class MediaController extends Controller
 
     public function actionVideo()
     {
-        $models = Media::find()->with(['files'])->where('mediatype_id = 2')->all();
+        $models = Media::find()->with(['files'])->where('mediatype_id = 2')->orderBy('create_at DESC')->all();
 
         return $this->render('video', [
             'models'    => $models

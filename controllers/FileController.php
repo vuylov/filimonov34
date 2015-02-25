@@ -19,6 +19,7 @@ class FileController extends \yii\web\Controller
                     ]
                 ]
             ],
+
         ];
     }
     public function actionDelete($id = null)

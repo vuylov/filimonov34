@@ -22,3 +22,8 @@ use yii\helpers\Html;
     <?php endif;?>
     </div>
 </div>
+<?php
+$this->title = 'Фотогалерея Олега Филимонова';
+$this->registerMetaTag(['name' => 'keywords', 'content' => 'фото филимонов, powerlifting волгоград']);
+$this->registerMetaTag(['name' => 'description', 'content' => 'фотографии профессионального пауэрлифтера, многократного чемпиона и рекордсмена мира, евразии и европы']);
+?>

@@ -44,7 +44,7 @@ BxSliderAsset::register($this);
                     ['label' => 'Мой тренер', 'url' => ['/site/coach']],
                     ['label' => 'Галерея', 'url' => ['/media/photo']],
                     ['label' => 'Видео', 'url' => ['/media/video']],
-                    ['label' => 'СК &laquo;Арена Юг&raquo;', 'url' => ['/site/arena']],
+                    ['label' => 'СК &laquo;Арена-Юг&raquo;', 'url' => ['/media/view', 'id' => 8]],
                     ['label' => 'В СМИ', 'url' => ['/site/press']],
                     ['label' => 'Советы мастера', 'url' => ['/site/faq']],
                     ['label' => 'Контакты', 'url' => ['/site/contact']],
@@ -89,8 +89,7 @@ BxSliderAsset::register($this);
         </div>
         <footer class="footer">
             <div class="container">
-                <p class="pull-left">&copy; Олег Филимонов <?= date('Y') ?></p>
-                <p class="pull-right"><?= Html::mailto('Написать письмо', 'mailto:oa.filimonov@gmail.com') ?></p>
+                <p class="pull-left"><?= Html::mailto('&copy; Олег Филимонов '.date('Y'), 'mailto:oa.filimonov@gmail.com') ?></p>
             </div>
         </footer>
     </div>

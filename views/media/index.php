@@ -25,7 +25,7 @@ $this->title = 'Медиа';
             'mediatype.name',
             'user.name',
             'name',
-            'description:ntext',
+            //'description:ntext',
             // 'thumb:ntext',
             // 'code:ntext',
             // 'active',

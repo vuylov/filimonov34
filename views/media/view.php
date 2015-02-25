@@ -52,20 +52,17 @@ echo FancyBox::widget([
             <p class="media-description"><?=$model->description;?></p>
         <?php endif;?>
         <?php if($model->code):?>
-            <div>
+            <div class="item-code">
                 <?=$model->code;?>
             </div>
-        <?php else:?>
-            <?php if(count($model->files) > 0):?>
-                <?php foreach($model->files as $image):?>
-                    <div>
-                        <a href="<?=Url::to(Yii::$app->homeUrl.$image->path);?>" rel="fancybox" class="img-container img-project-index" style="background-image: url('<?= Yii::$app->homeUrl.$image->path;?>')">
-                        </a>
-                    </div>
-                <?php endforeach;?>
-            <?php else:?>
-                <div class="alert alert-danger">Фотографии не добавлены в альбом</div>
-            <?php endif;?>
+        <?php endif;?>
+        <?php if(count($model->files) > 0):?>
+            <?php foreach($model->files as $image):?>
+                <div>
+                    <a href="<?=Url::to(Yii::$app->homeUrl.$image->path);?>" rel="fancybox" class="img-container img-project-index" style="background-image: url('<?= Yii::$app->homeUrl.$image->path;?>')">
+                    </a>
+                </div>
+            <?php endforeach;?>
         <?php endif;?>
     </div>
     <div class="clearfix"></div>
@@ -88,3 +85,7 @@ echo FancyBox::widget([
         </p>
     <?php endif;?>
 </div>
+<?php
+$this->registerMetaTag(['name' => 'keywords', 'content' => $model->keywords]);
+$this->registerMetaTag(['name' => 'description', 'content' => $model->description_seo]);
+?>

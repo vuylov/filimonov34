@@ -66,23 +66,31 @@ class File extends \yii\db\ActiveRecord
         }
         return false;
     }
-/*
+
+    public function beforeDelete()
+    {
+        if(parent::beforeDelete()){
+
+            $fp = Yii::getAlias('@webroot').'/'.$this->path;
+            if(file_exists($fp)){
+                unlink($fp);
+            }
+
+            return true;
+        }
+        return false;
+    }
+
     public static function deleteRelatedFiles(ActiveRecord $model)
     {
         $files = self::find()->where(['fid' => $model->id, 'type' => $model->fileType])->all();
         if(count($files) > 0){
             foreach($files as $file){
                 $fp     = Yii::getAlias('@webroot').'/'.$file->path;
-                $thm    = Yii::getAlias('@webroot').'/'.$file->thumb;
-
                 if(file_exists($fp)){
                     unlink($fp);
                 }
-
-                if(file_exists($thm)){
-                    unli
-                }
             }
         }
-    }*/
+    }
 }

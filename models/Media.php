@@ -103,6 +103,16 @@ class Media extends \yii\db\ActiveRecord
         return false;
     }
 
+    public function beforeDelete()
+    {
+        if(parent::beforeDelete())
+        {
+            File::deleteRelatedFiles($this);
+            return true;
+        }
+        return false;
+    }
+
     public function getFileType()
     {
         return self::FILE_TYPE;

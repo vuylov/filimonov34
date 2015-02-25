@@ -258,6 +258,7 @@ span.shadow{
     text-align: center;
     background-color: #9d1313;
     color: #fff;
+    font-size: 0.8em;
 }
 .img-project-index {
     width: 210px;
@@ -269,4 +270,14 @@ span.shadow{
     display: block;
     height: 165px;
     background-size: cover;
-    background-position: center center;}
+    background-position: center center;
+}
+.delete-link{
+    padding: 3px;
+    background-color: #9d1313;
+    color: #fff;
+    border-radius: 4px;
+}
+.item-code{
+    margin-bottom: 10px;
+}
