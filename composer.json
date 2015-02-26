@@ -13,15 +13,16 @@
         "source": "https://github.com/yiisoft/yii2"
     },
     "minimum-stability": "dev",
+    "prefer-stable" : true,
     "require": {
         "php": ">=5.4.0",
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "guzzlehttp/guzzle": "~5.2",
+        "yiisoft/yii2-jui": "~2.0.0",
         "vova07/yii2-imperavi-widget": "*",
         "kartik-v/yii2-widget-fileinput": "*",
-        "newerton/yii2-fancybox": "dev-master"
+        "newerton/yii2-fancybox": "*@dev"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

@@ -281,3 +281,12 @@ span.shadow{
 .item-code{
     margin-bottom: 10px;
 }
+.competition-data{
+    float: left;
+    font-weight: bold;
+    margin-right: 5px;
+}
+.competition-item{
+    margin-left: 41px;
+
+}

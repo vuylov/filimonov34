@@ -83,7 +83,7 @@ BxSliderAsset::register($this);
                <div class="col-xs-3 col-md-4">
                    <h3 class="section-header">Календарь соревнований</h3>
                    <div>
-
+                       <?= Calendar::getItems();?>
                    </div>
                </div>
            </div>
