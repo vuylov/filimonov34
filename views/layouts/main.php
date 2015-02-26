@@ -60,17 +60,35 @@ BxSliderAsset::register($this);
             <ul class="bxslider">
                 <li>
                     <div class="slide-image"><img src="<?=Yii::$app->homeUrl.'/../images/slides/slide1_1.jpg'?>"></div>
-                    <div class="slide-caption">Финальная чемпиаонская попытка - попытка</div>
-                </li>
-                <li>
-                    <div class="slide-image"><img src="<?=Yii::$app->homeUrl.'/../images/slides/slide2_1.jpg'?>"></div>
-                    <div class="slide-caption">Реклама для хундая!!!!!</div>
+                    <div class="slide-caption">
+                        <div class="slide-caption-title">2014. август. Москва. Чемпионат мира</div>
+                        <div>Чемпионская попытка</div>
+                        <div class="slide-caption-button">
+                            <?= Html::a('Еще фото', ['media/view', 'id' => 7], ['class' => 'btn btn-danger']);?>
+                        </div>
+                    </div>
                 </li>
                 <li>
                     <div class="slide-image">
-                        ssdsd
+                        <?= Html::img('@web/images/slides/slide3.jpg');?>
                     </div>
-                    <div class="slide-caption">Видео последнего выступления</div>
+                    <div class="slide-caption">
+                        <div class="slide-caption-title">Жим штанги 270 кг в слингшоте</div>
+                        <div>Хотите увидеть?</div>
+                        <div class="slide-caption-button">
+                            <?= Html::a('Просмотр', ['press'], ['class' => 'btn btn-danger']);?>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="slide-image"><img src="<?=Yii::$app->homeUrl.'/../images/slides/slide2_1.jpg'?>"></div>
+                    <div class="slide-caption">
+                        <div class="slide-caption-title">ВЫБОР СИЛЬНЫХ МИРА</div>
+                        <div>Статья для журнала "Ага. Город автомобилей" №6(1/2013)</div>
+                        <div class="slide-caption-button">
+                            <?= Html::a('Просмотр', ['press'], ['class' => 'btn btn-danger']);?>
+                        </div>
+                    </div>
                 </li>
             </ul>
             <div class="clearfix"></div>

@@ -13,3 +13,8 @@ use yii\helpers\Html;
         <div class="alert alert-danger">Видео не загружено</div>
     <?php endif;?>
 </div>
+<?php
+$this->title = 'Видео Олега Филимонова';
+$this->registerMetaTag(['name' => 'keywords', 'content' => 'видео филимонов, powerlifting волгоград']);
+$this->registerMetaTag(['name' => 'description', 'content' => 'видео клипы профессионального пауэрлифтера, многократного чемпиона и рекордсмена мира, евразии и европы Олеша Филимонова']);
+?>

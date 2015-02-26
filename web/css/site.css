@@ -4,7 +4,7 @@ body {
     height: 100%;
     background-color: #000000;
     background-image: url("../images/bg.jpg");
-    background-position: 50% 15%;
+    background-position: 50% 26%;
     background-size: cover;
     -moz-background-size: cover;
     -webkit-background-size: cover;
@@ -176,7 +176,8 @@ span.red {
     vertical-align: top;
     background-color: #002448;
     color: #fff;
-    padding: 0px 5px;
+    padding-top: 15%;
+    text-align: center;
 }
 ul.bxslider li {
     margin-left: -40px;
@@ -289,4 +290,12 @@ span.shadow{
 .competition-item{
     margin-left: 41px;
 
+}
+.slide-caption-title{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+.slide-caption-button{
+    margin-top: 10px;
 }
