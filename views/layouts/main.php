@@ -59,7 +59,7 @@ BxSliderAsset::register($this);
         <div id="slider-wrapper">
             <ul class="bxslider">
                 <li>
-                    <div class="slide-image"><img src="<?=Yii::$app->homeUrl.'/../images/slides/slide1_1.jpg'?>"></div>
+                    <div class="slide-image"><?= Html::img('@web/images/slides/slide1_1.jpg');?></div>
                     <div class="slide-caption">
                         <div class="slide-caption-title">2014. август. Москва. Чемпионат мира</div>
                         <div>Чемпионская попытка</div>
@@ -81,7 +81,7 @@ BxSliderAsset::register($this);
                     </div>
                 </li>
                 <li>
-                    <div class="slide-image"><img src="<?=Yii::$app->homeUrl.'/../images/slides/slide2_1.jpg'?>"></div>
+                    <div class="slide-image"><?= Html::img('@web/images/slides/slide2_1.jpg');?></div>
                     <div class="slide-caption">
                         <div class="slide-caption-title">ВЫБОР СИЛЬНЫХ МИРА</div>
                         <div>Статья для журнала "Ага. Город автомобилей" №6(1/2013)</div>
