@@ -169,7 +169,7 @@ class NewsController extends Controller
     {
         $uploadFile = UploadedFile::getInstance($model, 'file');
 
-        if(!$uploadFile->name){
+        if(!$uploadFile){
             return;
         }
         $tmbName        = Yii::$app->security->generateRandomString(10);
