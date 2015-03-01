@@ -3,13 +3,16 @@
 namespace app\controllers;
 
 use Yii;
+use yii\base\Exception;
 use yii\filters\AccessControl;
+use yii\helpers\VarDumper;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\ContactForm;
 use app\models\News;
-
+use GuzzleHttp\Client;
+use Symfony\Component\DomCrawler\Crawler;
 class SiteController extends Controller
 {
     public function behaviors()
@@ -104,5 +107,15 @@ class SiteController extends Controller
     public function actionArena()
     {
         return $this->render('arena');
+    }
+
+    public function actionFaq()
+    {
+        return $this->render('faq');
+    }
+
+    public function actionPress()
+    {
+        return $this->render('press');
     }
 }

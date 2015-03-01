@@ -29,7 +29,7 @@ class NewsController extends Controller
             ],
             'access'    => [
                 'class' => AccessControl::className(),
-                'only'  => ['index', 'update', 'delete', 'create', 'DeleteTmb'],
+                'only'  => ['update', 'delete', 'create', 'DeleteTmb'],
                 'rules' => [
                     [
                         'allow' => true,
@@ -46,13 +46,21 @@ class NewsController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new NewsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        if(!Yii::$app->user->isGuest){
+            $searchModel = new NewsSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
-        return $this->render('index', [
-            'searchModel' => $searchModel,
-            'dataProvider' => $dataProvider,
-        ]);
+            return $this->render('index', [
+                'searchModel' => $searchModel,
+                'dataProvider' => $dataProvider,
+            ]);
+        }else{
+
+            $news = News::find()->where('active = 1')->orderBy('create_at DESC')->all();
+
+            return $this->render('index_public', ['news' => $news]);
+
+        }
     }
 
     /**
