@@ -16,7 +16,7 @@ class Calendar {
 
     public static function getItems()
     {
-        $currentDay     = date('yyyy-MM-dd');
+        $currentDay     = date('Y-m-d');
         $competitions   = Competition::find()->where('date_at > :currentDate', [':currentDate' => $currentDay])->limit(5)->all();
         return Yii::$app->view->renderFile('@app/views/competition/_items.php', ['competitions' => $competitions]);
     }
