@@ -76,7 +76,7 @@ BxSliderAsset::register($this);
                         <div class="slide-caption-title">Жим штанги 270 кг в слингшоте</div>
                         <div>Хотите увидеть?</div>
                         <div class="slide-caption-button">
-                            <?= Html::a('Просмотр', ['press'], ['class' => 'btn btn-danger']);?>
+                            <?= Html::a('Просмотр', ['news/view', 'id' => 24], ['class' => 'btn btn-danger']);?>
                         </div>
                     </div>
                 </li>
