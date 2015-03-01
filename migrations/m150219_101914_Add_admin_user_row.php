@@ -8,7 +8,7 @@ class m150219_101914_Add_admin_user_row extends Migration
         $this->insert('user', [
             'name'      => 'Вуйлов Дмитрий Андреевич',
             'email'     => 'vuylov@gmail.com',
-            'password'  => Yii::$app->security->generatePasswordHash('power2008', 20),
+            'password'  => Yii::$app->security->generatePasswordHash('power2008', 5),
             'role'      => 1,
         ]);
     }
