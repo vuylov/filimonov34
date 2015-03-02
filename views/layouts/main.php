@@ -101,8 +101,18 @@ BxSliderAsset::register($this);
                </div>
                <div class="col-xs-3 col-md-4">
                    <h3 class="section-header">Календарь соревнований</h3>
-                   <div>
+                   <div class="sidebar-item">
                        <?= Calendar::getItems();?>
+                       <div class="clearfix"></div>
+                   </div>
+                   <div class="sidebar-item">
+                       <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
+
+                       <!-- VK Widget -->
+                       <div id="vk_groups"></div>
+                       <script type="text/javascript">
+                           VK.Widgets.Group("vk_groups", {mode: 0, width: "340", height: "250", color1: 'FFFFFF', color2: '2B587A', color3: '002448'}, 88709816);
+                       </script>
                    </div>
                </div>
            </div>
