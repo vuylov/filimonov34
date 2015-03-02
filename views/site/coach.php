@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\ContactForm */
 
-$this->title = 'Мой тренер: Гузев Павел Валерьевич';
+$this->title = 'Мой тренер: Гузев Павел Валериевич';
 //$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-contact">
