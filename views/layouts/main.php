@@ -42,7 +42,7 @@ BxSliderAsset::register($this);
                     ['label' => 'Главная', 'url' => ['/site/index']],
                     ['label' => 'Биография', 'url' => ['/site/about']],
                     ['label' => 'Достижения', 'url' => ['/site/achivements']],
-                    //['label' => 'Мой тренер', 'url' => ['/site/coach']],
+                    ['label' => 'Мой тренер', 'url' => ['/site/mycoach']],
                     ['label' => 'Галерея', 'url' => ['/media/photo']],
                     ['label' => 'Видео', 'url' => ['/media/video']],
                     ['label' => 'СК &laquo;Арена-Юг&raquo;', 'url' => ['/media/view', 'id' => 8]],

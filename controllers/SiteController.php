@@ -118,4 +118,9 @@ class SiteController extends Controller
     {
         return $this->render('press');
     }
+
+    public function actionMycoach()
+    {
+        return $this->render('coach');
+    }
 }
