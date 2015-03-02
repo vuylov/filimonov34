@@ -18,6 +18,7 @@ BxSliderAsset::register($this);
 <head>
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="google-site-verification" content="Nbif12N6jCozwQEyBJARk7jhaF9hXoqAgmJEgf0mKOo" />
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
