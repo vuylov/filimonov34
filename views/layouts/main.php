@@ -85,7 +85,7 @@ BxSliderAsset::register($this);
                     <div class="slide-image"><?= Html::img('@web/images/slides/slide2_1.jpg');?></div>
                     <div class="slide-caption">
                         <div class="slide-caption-title">ВЫБОР СИЛЬНЫХ МИРА</div>
-                        <div>Статья для журнала "Ага. Город автомобилей" №6(1/2013)</div>
+                        <div>Статья для журнала "Агат. Город автомобилей" №6(1/2013)</div>
                         <div class="slide-caption-button">
                             <?= Html::a('Просмотр', ['press'], ['class' => 'btn btn-danger']);?>
                         </div>
