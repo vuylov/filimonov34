@@ -111,7 +111,7 @@ BxSliderAsset::register($this);
                        <!-- VK Widget -->
                        <div id="vk_groups"></div>
                        <script type="text/javascript">
-                           VK.Widgets.Group("vk_groups", {mode: 0, width: "340", height: "250", color1: 'FFFFFF', color2: '2B587A', color3: '002448'}, 88709816);
+                           VK.Widgets.Group("vk_groups", {mode: 0, width: "auto", height: "250", color1: 'FFFFFF', color2: '2B587A', color3: '002448'}, 88709816);
                        </script>
                    </div>
                </div>

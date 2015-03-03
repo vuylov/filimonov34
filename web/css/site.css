@@ -302,3 +302,9 @@ span.shadow{
 .sidebar-item{
     margin-bottom: 10px;
 }
+#vk_groups, #vk_groups iframe {
+    width: 100%;!important;
+}
+#vk_groups{
+    width: auto;!important;
+}
