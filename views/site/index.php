@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 $this->title = 'Официальный сайт Олега Филимонова. Профессионального пауэрлифтера, многократного чемпиона и рекордсмена мира, еразии и европы';
@@ -20,6 +21,10 @@ $this->title = 'Официальный сайт Олега Филимонова.
                     <?=$item->brief;?>
                     <?=Html::a('Подробнее', ['news/view', 'id' => $item->id], ['class' => '']);?>
                 </div>
+                <div class="clearfix"></div>
+                <p class="social">
+                    <a href="http://vk.com/share.php?url=<?= Url::to(['news/view', 'id' => $item->id], true); ?>" target="_blank"><?= Html::img('@web/images/static/vk_share.png');?></a>
+                </p>
                 <div class="clearfix"></div>
             </div>
         <?php endforeach;?>

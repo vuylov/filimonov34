@@ -308,3 +308,6 @@ span.shadow{
 #vk_groups{
     width: auto;!important;
 }
+.social{
+    float: right;
+}
