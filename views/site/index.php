@@ -21,10 +21,9 @@ $this->title = 'Официальный сайт Олега Филимонова.
                     <?=$item->brief;?>
                     <?=Html::a('Подробнее', ['news/view', 'id' => $item->id], ['class' => '']);?>
                 </div>
-                <div class="clearfix"></div>
-                <p class="social">
+                <div>
                     <a href="http://vk.com/share.php?url=<?= Url::to(['news/view', 'id' => $item->id], true); ?>" target="_blank"><?= Html::img('@web/images/static/vk_share.png');?></a>
-                </p>
+                </div>
                 <div class="clearfix"></div>
             </div>
         <?php endforeach;?>

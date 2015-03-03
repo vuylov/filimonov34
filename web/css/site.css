@@ -309,5 +309,6 @@ span.shadow{
     width: auto;!important;
 }
 .social{
-    float: right;
+    float: left;
+    margin-top:0px;
 }
