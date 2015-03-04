@@ -243,6 +243,7 @@ span.shadow{
     overflow: hidden;
     margin-bottom: 10px;
     display: table-cell;
+    float: left;
 }
 .item a{
     background-size: cover;
