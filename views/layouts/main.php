@@ -58,7 +58,7 @@ BxSliderAsset::register($this);
             <h1 class="central-h1"><span class="blue">Олег</span><br><span class="red">Филимонов</span></h1>
             <h2><span class="shadow">Профессиональный пауэрлифтер,<br>многократный чемпион и рекордсмен<br>мира, евразии и европы</span></h2>
         </div>
-        <div id="slider-wrapper">
+        <div id="slider-wrapper" class="hidden-xs hidden-sm hidden-print">
             <ul class="bxslider">
                 <li>
                     <div class="slide-image"><?= Html::img('@web/images/slides/slide1_1.jpg');?></div>
@@ -97,10 +97,10 @@ BxSliderAsset::register($this);
         </div>
         <div class="content-area">
            <div class="row">
-               <div class="col-xs-9 col-md-8">
+               <div class="col-md-8">
                    <?= $content ?>
                </div>
-               <div class="col-xs-3 col-md-4">
+               <div class="col-md-4">
                    <h3 class="section-header">Календарь соревнований</h3>
                    <div class="sidebar-item">
                        <?= Calendar::getItems();?>
@@ -108,7 +108,6 @@ BxSliderAsset::register($this);
                    </div>
                    <div class="sidebar-item">
                        <script type="text/javascript" src="//vk.com/js/api/openapi.js?116"></script>
-
                        <!-- VK Widget -->
                        <div id="vk_groups"></div>
                        <script type="text/javascript">
