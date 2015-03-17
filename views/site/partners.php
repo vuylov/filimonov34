@@ -7,3 +7,8 @@ use yii\helpers\Html;
         <?= Html::img('@web/images/static/mspit-logo.png');?>
     </a>
 </div>
+<?php
+$this->title = "Наши партнеры";
+$this->registerMetaTag(['name' => 'keywords', 'content' => 'партнеры филимонова, наши друзься']);
+$this->registerMetaTag(['name' => 'description', 'content' => 'Парнтеры сайта Олега Филимонова']);
+?>
