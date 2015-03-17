@@ -123,4 +123,8 @@ class SiteController extends Controller
     {
         return $this->render('coach');
     }
+    public function actionPartners()
+    {
+        return $this->render('partners');
+    }
 }

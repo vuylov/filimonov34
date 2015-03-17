@@ -48,6 +48,7 @@ BxSliderAsset::register($this);
                     ['label' => 'Видео', 'url' => ['/media/video']],
                     ['label' => 'СК &laquo;Арена-Юг&raquo;', 'url' => ['/media/view', 'id' => 8]],
                     ['label' => 'В СМИ', 'url' => ['/site/press']],
+                    ['label' => 'Партнеры', 'url' => ['/site/partners']],
                     //['label' => 'Советы мастера', 'url' => ['/site/faq']],
                     ['label' => 'Контакты', 'url' => ['/site/contact']],
                 ],
