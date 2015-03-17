@@ -39,9 +39,11 @@ echo FancyBox::widget([
     <div class="list-group">
         <a href="<?=Yii::$app->homeUrl.'images/static/santafe.jpg';?>" rel="fancybox" class="list-group-item">Выбор сильных мира. Агат. Город автомобилей. №6(1/2013). Страница 1.</a>
         <a href="<?=Yii::$app->homeUrl.'images/static/santafe2.jpg';?>" rel="fancybox" class="list-group-item">Выбор сильных мира. Агат. Город автомобилей. №6(1/2013). Страница 2.</a>
+        <a href="<?=Yii::$app->homeUrl.'images/static/v102.jpg';?>" rel="fancybox" class="list-group-item">Житель Волгограда установил новые мировые рекорды в пауэрлифтинге (Высота 102: http://v102.ru/sport/38908.html)</a>
     </div>
 </div>
 <?php
+$this->title = "Олег Филимонов в прессе";
 $this->registerMetaTag(['name' => 'keywords', 'content' => 'филимонов с сми, сми о филимонове']);
 $this->registerMetaTag(['name' => 'description', 'content' => 'Выбор сильных мира. Агат. Город автомобилей. №6(1/2013)']);
 ?>
